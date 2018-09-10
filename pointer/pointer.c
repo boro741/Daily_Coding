@@ -1,12 +1,15 @@
 #include<stdio.h>
 
-int main(){
-    int a[2][2] = {1,2,3,4};
-    
-    int (*p)[2];
-    p = a;
+void print(){
+    printf("Hello WOrld\n");
+}
 
-    printf("%d\n",*(*(p)+1));
+int main()
+{
+   void (*p)();
 
-    return 0;
+   p = print;
+
+    p();
+   return 0;
 }
