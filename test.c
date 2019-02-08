@@ -1,29 +1,15 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<string.h>
 
-int sum(int x, int y); // as compiler goes line by line
-                        // so to make compiler familer that sum function exist
+#define MIN(a,b) (((a)<(b))?(a):(b))
+
 
 int main()
 {
- 
- 
-
-  return 0;
-}
-
-//    Function types:
-//1. with return type and with parameters
-//2.  with return type and without parameters
-//3.  without return type and with parameters
-//4.  without return type and without parameters
-
-// 1. with return type and with parameters
-   // sum(2,3)
-int sum(int x, int y){ // int x, int y called as formal parameters
-
-//  int result;
-
-//  result = x + y;
-
- return x+y;
+    static char *s[] = {"black","white","pink","violet"};
+    char **ptr[] = {s+3,s+2,s+1,s}, ***p;
+    p = ptr;
+    ++p;
+    printf("%s ",**p+3);
+    return 0;
 }
