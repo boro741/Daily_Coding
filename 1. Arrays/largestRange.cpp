@@ -24,11 +24,15 @@ int main()
 		int currentLength = 1;
 		int left = num-1;
 		int right = num+1;
+
+		// 1. Backward
 		while(nums.find(left) != nums.end()){
 			nums[left] = false;
 			currentLength++;
 			left--;
 		}
+
+		// 2. Forward
 		while(nums.find(right) != nums.end()){
 			nums[right] = false;
 			currentLength++;

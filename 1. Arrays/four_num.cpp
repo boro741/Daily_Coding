@@ -16,6 +16,8 @@ int main()
 		for(int j=i+1;j<array.size();j++){
 			int currentSum = array[i] + array[j];
 			int difference = targetSum - currentSum;
+
+			// If difference found in allPairSum then retrieve the pair.
 			if(allPairSum.find(difference) != allPairSum.end()){
 				for(vector<int> pairs : allPairSum[difference]){
 					pairs.push_back(array[i]);
@@ -24,8 +26,12 @@ int main()
 				}
 			}
 		}
+
+
 		for(int k=0;k<i;k++){
 			int currentSum = array[k] + array[i];
+
+			// If difference pair is not found then push to allPairSum hash table.
 			if(allPairSum.find(currentSum) == allPairSum.end()){
 				allPairSum[currentSum] = vector<vector<int>> {{array[k],array[i]}};
 			} else{

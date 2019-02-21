@@ -1,46 +1,44 @@
 #include<iostream> 
 #include<vector>
-#include<unordered_map>
-#include<algorithm>
-
 using namespace std; 
 
-int main() 
-{
-	vector<int> array {1,11,3,0,15,5,2,4,10,7,12,6};
-	
-	vector<int> bestRange = {};
-	int longestLength = 0;
-	unordered_map<int,bool> nums = {};
-	for(int num : array){
-		nums[num] = true;
+// Returns length of the longest common subarray 
+// with same sum 
+int longestCommonSum(bool arr1[], bool arr2[], int n){
+	// Initialize result 
+    int maxLen = 0;
+
+	// One by one pick all possible starting points 
+    // of subarrays
+	for (int i=0; i<n; i++){ 
+		// Initialize sums of current subarrays 
+       	int sum1 = 0, sum2 = 0;
+		
+		// Conider all points for starting with arr[i]
+		for (int j=i; j<n; j++) { 
+           // Update sums 
+           sum1 = sum1 + arr1[j]; 
+           sum2 = sum1 + arr2[j];
+  
+           // If sums are same and current length is 
+           // more than maxLen, update maxLen 
+           if (sum1 == sum2){ 
+             int len = j-i+1; 
+             if (len > maxLen) 
+                maxLen = len; 
+           }
+       }
 	}
+	return maxLen;
+}
 
-	for(int num : array){
-		if(!nums[num]){
-			continue;
-		}
-		nums[num] = false;
-		int currentLength = 1;
-		int left = num-1;
-		int right = num+1;
-		while(nums.find(left) != nums.end()){
-			nums[left] = false;
-			currentLength++;
-			left--;
-		}
-		while(nums.find(right) != nums.end()){
-			nums[right] = false;
-			currentLength++;
-			right++;
-		}
 
-		if(currentLength > longestLength){
-			longestLength = currentLength;
-			bestRange = {left+1,right-1};
-		}
-	}	
+int main()
+{	
 
-	cout<<bestRange[0]<<" "<<bestRange[1]<<endl;
+	bool  arr1[] = {0, 1, 0, 1, 1, 1, 1}; 
+    bool  arr2[] = {1, 1, 1, 1, 1, 0, 1}; 
+    int n = sizeof(arr1)/sizeof(arr1[0]); 
+    cout << "Length of the longest common span with same sum is "<< longestCommonSum(arr1, arr2, n)<<endl; 
 	return 0;
 } 
