@@ -1,44 +1,25 @@
 #include<iostream> 
-#include<vector>
+#include <vector>
+#include<string>
 using namespace std; 
-
-// Returns length of the longest common subarray 
-// with same sum 
-int longestCommonSum(bool arr1[], bool arr2[], int n){
-	// Initialize result 
-    int maxLen = 0;
-
-	// One by one pick all possible starting points 
-    // of subarrays
-	for (int i=0; i<n; i++){ 
-		// Initialize sums of current subarrays 
-       	int sum1 = 0, sum2 = 0;
-		
-		// Conider all points for starting with arr[i]
-		for (int j=i; j<n; j++) { 
-           // Update sums 
-           sum1 = sum1 + arr1[j]; 
-           sum2 = sum1 + arr2[j];
-  
-           // If sums are same and current length is 
-           // more than maxLen, update maxLen 
-           if (sum1 == sum2){ 
-             int len = j-i+1; 
-             if (len > maxLen) 
-                maxLen = len; 
-           }
-       }
-	}
-	return maxLen;
-}
 
 
 int main()
 {	
+    vector<int> a { 0, 0, 0, 9, 9};
+    int len = a.size() - 1;
+    
+    // Removing 0's from MSB's
+    for(int i = 0;i<len;i++){
+        if(a[i] == 0){
+            a.erase(a.begin());
+        }
+    }
 
-	bool  arr1[] = {0, 1, 0, 1, 1, 1, 1}; 
-    bool  arr2[] = {1, 1, 1, 1, 1, 0, 1}; 
-    int n = sizeof(arr1)/sizeof(arr1[0]); 
-    cout << "Length of the longest common span with same sum is "<< longestCommonSum(arr1, arr2, n)<<endl; 
+    for(int x:a){
+        cout<<x;
+    }
+
+    cout<<endl;
 	return 0;
 } 

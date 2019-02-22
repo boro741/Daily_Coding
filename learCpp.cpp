@@ -1,35 +1,17 @@
 #include<iostream>
 #include<vector>
-#include<unordered_map>
 
 using namespace std;
 
 int main(){
-    vector<int> a {5 ,1, 2, 3,7, 8, 6, 4};
-    unordered_map<int,int> ht;
-    int count = 0;
-
-    for(int x:a){
-        ht[x] = 0;
-    }
-
-    for(int pass = a.size()-1;pass >= 0;pass--){
-        for(int i=0;i<a.size()-1;i++){
-            if( (a[i] > a[i+1]) && (ht[a[i]] <= 2)){
-                swap(a[i],a[i+1]);
-                ht[a[i]]++;
-                count++;
-            }
-        }
-    }
-    
-
-    bool sorted = is_sorted(a.begin(),a.end());
-
-    if(sorted){
-        cout<<count<<endl;
-    }else{
-        cout<<"Too Chaotic"<<endl;
-    }
-
+    // initialising the vector 
+    vector<int> vec = { 10, 20, 30, 40 }; 
+  
+    // inserts 3 one time at front   
+    auto it = vec.insert(vec.begin(), 1, 3); 
+      
+    cout << "The vector elements are: ";  
+    for (auto it = vec.begin(); it != vec.end(); ++it) 
+        cout << *it << " "; 
+    return 0;
 }
