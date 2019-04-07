@@ -44,6 +44,10 @@
         "system_error": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     }
 }
