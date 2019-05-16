@@ -48,6 +48,11 @@
         "forward_list": "cpp",
         "list": "cpp",
         "regex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "future": "cpp",
+        "scoped_allocator": "cpp",
+        "__string": "cpp"
     }
 }
