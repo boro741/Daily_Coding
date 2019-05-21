@@ -1,50 +1,22 @@
 import java.io.*;
-import java.util.Dictionary;
-
-import com.sun.tools.javac.util.Pair;;
+import java.util.*;
 
 
 class test{
     public static void main(String args[]){
-        string str = "ababab";
-        Dictionary<string, int>dict = new Dictionary<string, int>();
-KeyValuePair int count = 0;
-int ngramcount = 6;
-string substring = "";
+       test he = new test();
+       he.output();
+    }
 
-// Add entries to the hash table
-while (count < str.length) {
-    // copy the words into the substring
-    int i = 0;
-    substring = "";
-    while (ngramcount > 0 && count < str.length) {
-        substring[i] = str[count];
-        if (str[i] == ' ')
-            ngramcount--;
-        i++;
-        count++;
+    void output(){
+        long[] x = {7,8,9};
+        long[] y = fix(x);
+        System.out.print(x[0]+x[1]+x[2]+" ");
+        System.out.println(y[0]+y[1]+y[2]);
     }
-    ngramcount = 6;
-    substring.Trim();  // get rid of the last blank in the substring
-    // Update the dictionary (hash table) with the substring
-    if (dict.Contains(substring)) {  // substring is already in hash table so increment the count
-        int hashCount = dict[substring];
-        hashCount++;
-        dict[substring] = hashCount;
-    }
-    else
-        dict[substring] = 1;
-}
 
-// Find the most commonly occurrring pattern in the string
-// by searching the hash table for the greatest count.
-int maxCount = 0;
-string mostCommonPattern = "";
-foreach (KeyValuePair<string,int> pair in dict) {
-    if (pair.Value > maxCount) {
-        maxCount = pair.Value;
-        mostCommonPattern = pair.Key;
-    }
-}
+    long[] fix(long[] z){
+        z[1] = 4;
+        return z;
     }
 }
