@@ -1,17 +1,18 @@
-#include<iostream>
-using namespace std;
+// Iterative C++ program to reverse 
+// a linked list 
+#include<iostream> 
+#include<vector>
+using namespace std; 
+ 
 
-int main(){
+/* Driver program to test above function*/
+int main() 
+{ 
+    vector<int> myVector = {1,2,3,4};
+	vector<int> slice(myVector.begin() + 0, myVector.begin() + 2);
+
     
-    int a = 1, b = 2,c = 3;
-    int *P = &a,*Q = &b,*R = &c;
-    
-    P = Q;
-    R = Q;
-    Q = R;
-    
-    R = Q->P=R->Q=R;
-    //swap(P,Q);
-    cout<<"P: "<<*P<<" Q: "<<*Q<<" R: "<<*R<<endl;
-    return 0;
-}
+    for(int x:slice)
+        cout<<x<<endl;
+	return 0; 
+} 
